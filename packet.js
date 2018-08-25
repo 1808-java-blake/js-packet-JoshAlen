@@ -30,9 +30,9 @@ function bubbleSort(numArray){
     for(let i = 0; i < numArray.length; i++){
       if((numArray[i] && numArray[i + 1]) && (numArray[i] > numArray[i + 1])){
         let temp = numArray[i];
-        numArray[i] = numArray[j];
-        numArray[j] = temp;
-        swapped = true;
+        numArray[i] = numArray[i + 1];
+        numArray[i + 1] = temp;
+        flag = true;
       }
     }
   } while(flag)
