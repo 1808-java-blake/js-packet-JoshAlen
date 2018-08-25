@@ -138,22 +138,38 @@
     // Define function getAnchorChildren()
     // Find all anchor elements with a <span> child.
     // Print the contents of <span>
-    
 
+    function getAnchorChildren(){
+      for(let i = 0; i < temp.length; i++){
+          if( temp[i].childElementCount ){
+            let span = temp[i].getElementsByTagName('span');
+            console.log(span[0].textContent);
+          };
+      }
+    }
 
     // 4. Hobbies
     // Define function getHobbies()
     // Find all checked options in the 'skills' select element.
     // Print the value and the contents.
-    
-    
+
+    function getHobbies(){
+      let skills = document.getElementsByName("skills"); 
+return`Value: ${skills[0].selectedOptions[0].value}
+Content: ${skills[0].selectedOptions[0].text}
+`;
+    }
+
     // 5. Custom Attribute
     // Define function getCustomAttribute()
     // Find all elements with "data-customAttr" attribute
     // Print the value of the attribute.
     // Print the element that has the attribute.
     
-    
+    getCustomAttribute(){
+      
+    }
+
     // 6. Sum Event
     // NOTE: Write unobtrusive Javascript
     // Regarding these elements:
@@ -175,26 +191,15 @@
       if(isNumber) { 
         outputSum.innerText = isNumber;
       } else {
-        outputSum.innerText = "please only enter number for calculation."
+        outputSum.innerText = "please only enter numbers for calculation."
       }
     }
 
-    inputNum1.addEventListener('blur', () => { 
-        sumNums();
-    });
-    
-    inputNum1.addEventListener('change', () => { 
-        sumNums();
-    });
+    inputNum1.addEventListener('blur', sumNums);
+    inputNum1.addEventListener('change', sumNums);
 
-    inputNum2.addEventListener('blur', () => { 
-        sumNums();
-    });
-    
-    inputNum2.addEventListener('change', () => { 
-        sumNums();
-    });
-
+    inputNum2.addEventListener('blur', sumNums);
+    inputNum2.addEventListener('change', sumNums);
 
     // 7. Skills Event
     // NOTE: Write unobtrusive Javascript
