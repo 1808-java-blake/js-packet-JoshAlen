@@ -257,9 +257,12 @@ Content: ${skills[0].selectedOptions[0].text}`;
         let ss = today.getSeconds();
         let mm = today.getMinutes();
         let hh = today.getHours();
+        let hour12Format = hh - 12;
 
-        if( hh - 12 > 0){
-          currentTime.innerHTML = `${hh - 12}:${mm}:${ss} PM`;
+        if( hour12Format === 0){
+          currentTime.innerHTML = `${hh}:${mm}:${ss} PM`;
+        } else if ( hour > 0){
+          currentTime.innerHTML = `${hour12Format}:${mm}:${ss} PM`;
         } else {
           currentTime.innerHTML = `${hh}:${mm}:${ss} AM`;
         }
