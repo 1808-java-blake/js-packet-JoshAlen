@@ -210,7 +210,8 @@ Content: ${skills[0].selectedOptions[0].text}`;
     
     //Using jQuery for this one.
     $("select[name='skills']").on("change", function(){
-      alert(`Are you sure ${this.value} is one of your skills?`);
+      let value = $(`option[value=${this.value}`);
+      alert(`Are you sure ${value[0].innerText} is one of your skills?`);
     });
 
     // 8. Favorite Color Event
