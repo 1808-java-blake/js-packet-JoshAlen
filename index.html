@@ -230,6 +230,7 @@ Content: ${skills[0].selectedOptions[0].text}`;
       } else {
         alert(`So you like ${this.value} more than ${checkedColor[0].value} now?`);
       }
+      $("input[name='favoriteColor']").parent().css("background-color", this.value);
       checkedColor = $("[name='favoriteColor']:checked");
     });
 
@@ -261,7 +262,7 @@ Content: ${skills[0].selectedOptions[0].text}`;
 
         if( hour12Format === 0){
           currentTime.innerHTML = `${hh}:${mm}:${ss} PM`;
-        } else if ( hour > 0){
+        } else if ( hour12Format > 0){
           currentTime.innerHTML = `${hour12Format}:${mm}:${ss} PM`;
         } else {
           currentTime.innerHTML = `${hh}:${mm}:${ss} AM`;
