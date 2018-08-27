@@ -208,20 +208,10 @@ Content: ${skills[0].selectedOptions[0].text}`;
     //  "Are you sure CSS is one of your skills?"
     // NOTE: no alert should appear when user deselects a skill.
     
-    let skillOptionSelect = document.querySelectorAll("select[name='skills'] option");
-    
-    for(let i = 0; i < skillOptionSelect.length; i++){
-      let option = skillOptionSelect[i];
-      option.classList.add("optionList");
-    }
-
-    skillOptionSelect = document.body.getElementsByClassName("optionList");
-
-    for(let i = 0; i < skillOptionSelect.length; i++){
-      skillOptionSelect[i].addEventListener('click', () => {
-        console.log(`Are you sure ${this.textContent} is one of your skills?`);
-      });
-    }
+    //Using jQuery for this one.
+    $("select[name='skills']").on("change", function(){
+      alert(`Are you sure ${this.value} is one of your skills?`);
+    });
 
     // 8. Favorite Color Event
     // NOTE: Write unobtrusive Javascript
@@ -266,10 +256,9 @@ Content: ${skills[0].selectedOptions[0].text}`;
         let ss = today.getSeconds();
         let mm = today.getMinutes();
         let hh = today.getHours();
-            hh -= 12;
 
-        if( hh > 0){
-          currentTime.innerHTML = `${hh}:${mm}:${ss} PM`;
+        if( hh - 12 > 0){
+          currentTime.innerHTML = `${hh - 12}:${mm}:${ss} PM`;
         } else {
           currentTime.innerHTML = `${hh}:${mm}:${ss} AM`;
         }
