@@ -14,7 +14,7 @@
 // Return the nth number in the fibonacci sequence.
 
 function fib(n){
- if(n <= 1){ return 1; }
+ if(n === 0 || n === 1){ return 1; }
  return fib(n-1) + fib(n-2);
 }
 
@@ -131,8 +131,12 @@ function printShape(shape, height, character){
       case "diamond":
       case "Diamond":
           let middle = Math.ceil(height / 2);
-          console.log(" ".repeat(middle) + character);
-
+          if(height % 2 == 0){
+            console.log(" ".repeat(middle + 1) + character);
+          } else {
+            console.log(" ".repeat(middle) + character);
+          }
+          
           for(let i = 1; i < middle * 2 - 1; i += 2){
             let whiteSpace = " ".repeat((height - (i - 1)) / 2 )
             let str = whiteSpace + character.repeat(i + 2) + whiteSpace;
