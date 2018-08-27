@@ -131,13 +131,18 @@ function printShape(shape, height, character){
       case "diamond":
       case "Diamond":
           let middle = Math.ceil(height / 2);
+          console.log(" ".repeat(middle) + character);
 
-          for(let i = 0; i < middle; i++){
-            console.log(character.repeat(i + 1));
+          for(let i = 1; i < middle * 2 - 1; i += 2){
+            let whiteSpace = " ".repeat((height - (i - 1)) / 2 )
+            let str = whiteSpace + character.repeat(i + 2) + whiteSpace;
+            console.log(str);
            }
 
-          for(let i = middle; i > 0; i--){
-            console.log(character.repeat(i - 1));
+          for(let i = middle * 2 - 1; i > 2; i -=2){
+            let whiteSpace = " ".repeat((height - (i - 1)) / 2 )
+            let str = whiteSpace + character.repeat(i - 2) + whiteSpace;
+            console.log("  " + str);
           }
           
           break;
@@ -147,7 +152,6 @@ function printShape(shape, height, character){
           }
   }
 }
-
 
 // 9. Object literal
 // Define function traverseObject(someObj)
